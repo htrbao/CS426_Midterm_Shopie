@@ -23,7 +23,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+            android:value="AIzaSyBia7HunA0_vXlbMCq_4gnIVVLlaRB_8aI" />
 
         <activity
             android:name=".MapsActivity"
@@ -40,5 +40,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
