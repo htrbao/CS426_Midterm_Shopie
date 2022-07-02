@@ -13,7 +13,9 @@
         <ImageView
             android:id="@+id/img_item"
             android:layout_width="match_parent"
+
             android:layout_height="200dp"
+
             android:src="@drawable/example1"
             />
         <TextView
