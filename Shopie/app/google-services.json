@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "126071586601",
+    "firebase_url": "https://storage-31a32-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "storage-31a32",
+    "storage_bucket": "storage-31a32.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126071586601:android:eb3c0b34d7425d99484138",
+        "android_client_info": {
+          "package_name": "com.example.shopie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "126071586601-09pqspvk09h2eq3a460dkhp4gb0h33o6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsLQcUPk9SMObIX3B2n7Ocj2-4Ggwc6sk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "126071586601-09pqspvk09h2eq3a460dkhp4gb0h33o6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

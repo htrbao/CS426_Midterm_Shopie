@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import Information.Information;
+
 import banner.BannerAdapter;
 import me.relex.circleindicator.CircleIndicator2;
 import menu.Menu;

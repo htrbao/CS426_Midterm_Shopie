@@ -1,7 +1,6 @@
 package menu;
 
 import android.content.Context;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.shopie.R;
 
 import java.util.List;
@@ -45,8 +45,8 @@ public class MenuAdaper extends RecyclerView.Adapter<MenuAdaper.MenuViewHolder> 
         if (menu == null)
             return;
 
-        holder.imgItem.setImageResource(menu.getResourceID());
-        holder.tvItem.setText(menu.getTitle());
+        Glide.with(context).load(menu.getUrlMenu()).fitCenter().into(holder.imgItem);
+        holder.tvItem.setText(menu.getName());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

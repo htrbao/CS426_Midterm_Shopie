@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Shopie">
         <activity
+            android:name=".ItemActivity"
+            android:exported="false" />
+        <activity
             android:name=".DescriptionActivity"
             android:exported="false" />
         <!--
@@ -46,4 +49,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

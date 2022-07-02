@@ -20,14 +20,15 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
-import Information.Information;
+import product.Product;
+import product.ProductListener;
 
 public class descriptionFragment extends Fragment {
 
-    Information info;
+    Product product;
 
-    public descriptionFragment(Information info) {
-        this.info = info;
+    public descriptionFragment(Product product) {
+        this.product = product;
     }
 
 
@@ -35,6 +36,7 @@ public class descriptionFragment extends Fragment {
     private TextView name_description;
     private TextView price_description;
     private TextView brand_description;
+    private TextView content_description;
 
 
     private AutoCompleteTextView autoCompleteTextView1;
@@ -49,7 +51,7 @@ public class descriptionFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.description_item, container, false);
         autoCompleteTextView1 = view.findViewById(R.id.auto_complete_txt1);
-        adapterItems1 = new ArrayAdapter<String>(getContext(), R.layout.choice_list, info.getItems());
+        adapterItems1 = new ArrayAdapter<String>(getContext(), R.layout.choice_list, product.getItems());
         autoCompleteTextView1.setAdapter(adapterItems1);
         autoCompleteTextView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -71,11 +73,13 @@ public class descriptionFragment extends Fragment {
         name_description = view.findViewById(R.id.name_description);
         price_description = view.findViewById(R.id.price_description);
         brand_description = view.findViewById(R.id.brand_description);
+        content_description = view.findViewById(R.id.content_description);
 
-        Glide.with(getContext()).load(info.getUrl()).fitCenter().into(img_description);
-        name_description.setText(info.getName());
-        price_description.setText(info.getPrice());
-        brand_description.setText(info.getBrand());
+        Glide.with(getContext()).load(product.getUrlProduct()).fitCenter().into(img_description);
+        name_description.setText(product.getName());
+        price_description.setText(product.getPrice());
+        brand_description.setText(product.getBrand());
+        content_description.setText(product.getDescription());
 
         return view;
     }
