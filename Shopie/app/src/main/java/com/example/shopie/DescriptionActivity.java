@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.icu.text.IDNA;
 import android.os.Bundle;
 
-import Information.Information;
 import product.Product;
 
 public class DescriptionActivity extends AppCompatActivity {

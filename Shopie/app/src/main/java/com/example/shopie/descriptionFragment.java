@@ -20,7 +20,6 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
-import Information.Information;
 import product.Product;
 import product.ProductListener;
 
