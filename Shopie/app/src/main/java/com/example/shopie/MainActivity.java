@@ -24,8 +24,9 @@ import menu.Menu;
 import menu.MenuAdaper;
 import menu.MenuListener;
 
-public class MainActivity extends AppCompatActivity implements testFragment.TestFragmentListener{
+public class MainActivity extends AppCompatActivity implements testFragment.TestFragmentListener, CartBtnFragment.CartBtnFragmentListener{
     private testFragment testfragment;
+    private CartBtnFragment cartBtnFragment;
     private MapsActivity mapsActivity;
 
     private bannerFragment bannerfragment;
@@ -37,7 +38,15 @@ public class MainActivity extends AppCompatActivity implements testFragment.Test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_main);
+
+        cartBtnFragment = new CartBtnFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_cart, cartBtnFragment)
+                .commit();
 
         bannerfragment = new bannerFragment();
         getSupportFragmentManager().beginTransaction()
@@ -77,5 +86,12 @@ public class MainActivity extends AppCompatActivity implements testFragment.Test
     public void onClickAboutUs() {
         Intent intent = new Intent(MainActivity.this, MapsActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onClickCartBtn() {
+        //for moving to Cart Screen.
+        //Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+        //startActivity(intent);
     }
 }

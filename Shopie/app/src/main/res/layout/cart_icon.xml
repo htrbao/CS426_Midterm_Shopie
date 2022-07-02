@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="70dp"
+    android:layout_height="70dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:focusable="true"
+    android:padding="16dp"
+    android:clipToPadding="false"
+    tools:context=".CartBtnFragment">
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/trolley"
+        android:maxWidth="50dp"
+        android:maxHeight="50dp"
+        android:id="@+id/cartBtn"/>
+    <TextView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="12dp"
+        android:background="@drawable/cart_product_no_bg"
+        android:textColor="@color/white"
+        android:layout_gravity="top|end"
+        android:layout_marginEnd="-4dp"
+        android:layout_marginTop="-4dp"
+        android:gravity="center"
+        android:id="@+id/tv_productNo"/>
+</FrameLayout>
