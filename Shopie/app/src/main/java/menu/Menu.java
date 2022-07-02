@@ -1,27 +1,29 @@
 package menu;
 
 public class Menu {
-    private int resourceID;
-    private String title;
+    private String UrlMenu;
+    private String Name;
 
-    public Menu(int resourceID, String title) {
-        this.resourceID = resourceID;
-        this.title = title;
+    public Menu(){}
+
+    public Menu(String UrlMenu, String Name) {
+        this.UrlMenu = UrlMenu;
+        this.Name = Name;
     }
 
-    public int getResourceID() {
-        return resourceID;
+    public String getUrlMenu() {
+        return UrlMenu;
     }
 
-    public void setResourceID(int resourceID) {
-        this.resourceID = resourceID;
+    public void setUrlMenu(String urlMenu) {
+        this.UrlMenu = urlMenu;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return Name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.Name = name;
     }
 }

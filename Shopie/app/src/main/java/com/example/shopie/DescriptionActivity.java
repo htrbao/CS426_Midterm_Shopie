@@ -6,6 +6,7 @@ import android.icu.text.IDNA;
 import android.os.Bundle;
 
 import Information.Information;
+import product.Product;
 
 public class DescriptionActivity extends AppCompatActivity {
     private descriptionFragment descriptionFragment;
@@ -14,8 +15,8 @@ public class DescriptionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_description);
         if (getIntent().getExtras() != null) {
-            Information info = (Information) getIntent().getExtras().get("info_item");
-            descriptionFragment = new descriptionFragment(info);
+            Product product = (Product) getIntent().getExtras().get("detail_product");
+            descriptionFragment = new descriptionFragment(product);
 
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.description_container, descriptionFragment)
