@@ -37,6 +37,8 @@ public class ItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item);
 
+        getSupportActionBar().hide();
+
         list = new ArrayList<>();
         category = getIntent().getStringExtra("category");
         Toast.makeText(getApplicationContext(), category, Toast.LENGTH_SHORT).show();

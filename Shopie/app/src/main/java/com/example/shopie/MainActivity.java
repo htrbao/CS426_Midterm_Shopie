@@ -24,16 +24,15 @@ import menu.Menu;
 import menu.MenuAdaper;
 import menu.MenuListener;
 
-public class MainActivity extends AppCompatActivity implements testFragment.TestFragmentListener, CartBtnFragment.CartBtnFragmentListener{
+public class MainActivity extends AppCompatActivity implements testFragment.TestFragmentListener, CartBtnFragment.CartBtnFragmentListener, LogoFragment.LogoBtnFragmentListener{
     private testFragment testfragment;
     private CartBtnFragment cartBtnFragment;
+    private LogoFragment logoFragment;
+    private FormBillActivity formBillActivity;
     private MapsActivity mapsActivity;
 
     private bannerFragment bannerfragment;
     private menuFragment menuFragment;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +41,11 @@ public class MainActivity extends AppCompatActivity implements testFragment.Test
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_main);
+
+        logoFragment = new LogoFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_logo, logoFragment)
+                .commit();
 
         cartBtnFragment = new CartBtnFragment();
         getSupportFragmentManager().beginTransaction()
@@ -59,7 +63,9 @@ public class MainActivity extends AppCompatActivity implements testFragment.Test
                 .commit();
 
         testfragment = new testFragment();
+
         mapsActivity = new MapsActivity();
+        formBillActivity = new FormBillActivity();
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container_test, testfragment)
@@ -78,10 +84,6 @@ public class MainActivity extends AppCompatActivity implements testFragment.Test
         bannerfragment.stopAutoScrollBanner();
     }
 
-
-
-
-
     @Override
     public void onClickAboutUs() {
         Intent intent = new Intent(MainActivity.this, MapsActivity.class);
@@ -91,6 +93,13 @@ public class MainActivity extends AppCompatActivity implements testFragment.Test
     @Override
     public void onClickCartBtn() {
         //for moving to Cart Screen.
+        Intent intent = new Intent(MainActivity.this, FormBillActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onClickLogoBtn() {
+        //for moving to Home Screen.
         //Intent intent = new Intent(MainActivity.this, MapsActivity.class);
         //startActivity(intent);
     }

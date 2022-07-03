@@ -11,6 +11,8 @@ public class DescriptionActivity extends AppCompatActivity {
     private descriptionFragment descriptionFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_description);
         if (getIntent().getExtras() != null) {

@@ -4,14 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/drawable-v24/cart_product_no_bg.xml" value="0.124" />
+        <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/drawable/btn_design.xml" value="0.124" />
+        <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/drawable/edt_design.xml" value="0.124" />
+        <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/layout/activity_form_bill.xml" value="0.245" />
         <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/layout/activity_maps.xml" value="0.11302083333333333" />
         <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/layout/banner_item.xml" value="0.11302083333333333" />
-        <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/layout/cart_icon.xml" value="1.6" />
+        <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/layout/cart_icon.xml" value="0.536" />
         <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/layout/cart_product_no_bg.xml" value="0.11302083333333333" />
         <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/layout/choose_item.xml" value="0.11302083333333333" />
         <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/layout/description_item.xml" value="0.11302083333333333" />
+        <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/layout/logo_icon.xml" value="0.6" />
         <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/layout/menu_recycler.xml" value="0.11302083333333333" />
+        <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/layout/show_item.xml" value="0.11302083333333333" />
         <entry key="..\:/HCMUS/semester6/CS426_MobileApp/Midterm/CS426_Midterm_Shopie/Shopie/app/src/main/res/layout/test_fragment.xml" value="0.176" />
         <entry key="..\:/Users/acer/OneDrive/Documents/GitHub/CS426_Midterm_Shopie/Shopie/app/src/main/res/drawable/bg_indicator.xml" value="0.139" />
         <entry key="..\:/Users/acer/OneDrive/Documents/GitHub/CS426_Midterm_Shopie/Shopie/app/src/main/res/layout/activity_add.xml" value="0.1" />

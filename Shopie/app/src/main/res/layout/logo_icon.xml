@@ -6,26 +6,22 @@
     android:focusable="true"
     android:padding="16dp"
     android:clipToPadding="false"
-    tools:context=".CartBtnFragment"
-    android:layout_gravity="right">
+    tools:context=".LogoFragment">
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/trolley"
+        android:background="@drawable/shopping_bag"
         android:maxWidth="50dp"
         android:maxHeight="50dp"
-        android:id="@+id/cartBtn"/>
+        android:id="@+id/logoPieBtn"/>
     <TextView
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:text="0"
+        android:text="PIE"
         android:textStyle="bold"
-        android:textSize="12dp"
-        android:background="@drawable/cart_product_no_bg"
+        android:textSize="8dp"
         android:textColor="@color/white"
-        android:layout_gravity="top|end"
-        android:layout_marginEnd="-4dp"
-        android:layout_marginTop="-4dp"
-        android:gravity="center"
-        android:id="@+id/tv_productNo"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:gravity="center"/>
 </FrameLayout>
