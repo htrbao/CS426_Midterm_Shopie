@@ -1,5 +1,6 @@
 package com.example.shopie;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.UrlQuerySanitizer;
 import android.os.Bundle;
@@ -19,9 +20,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-
 
 import java.io.File;
 import java.io.IOException;
@@ -42,6 +40,7 @@ public class descriptionFragment extends Fragment {
         this.product = product;
     }
 
+    private addToCartListener listener;
 
     private ImageView img_description;
     private TextView name_description;
@@ -50,18 +49,21 @@ public class descriptionFragment extends Fragment {
     private TextView content_description;
     private Button  button;
 
-
     private AutoCompleteTextView autoCompleteTextView1;
     private ArrayAdapter<String> adapterItems1;
 
     private AutoCompleteTextView autoCompleteTextView2;
     private ArrayAdapter<String> adapterItems2;
 
+    public interface addToCartListener {
+        void addProductListener(int n);
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.description_item, container, false);
+
         autoCompleteTextView1 = view.findViewById(R.id.auto_complete_txt1);
         adapterItems1 = new ArrayAdapter<String>(getContext(), R.layout.choice_list, product.getItems());
         autoCompleteTextView1.setAdapter(adapterItems1);
@@ -100,6 +102,7 @@ public class descriptionFragment extends Fragment {
                 }
                 Cart.cartProductList.add(cartProduct);
                 Toast.makeText(getActivity().getApplicationContext(), "Added to Cart", Toast.LENGTH_SHORT).show();
+                listener.addProductListener(Cart.cartProductList.size());
             }
         });
 
@@ -120,5 +123,12 @@ public class descriptionFragment extends Fragment {
             quantity.add(Integer.toString(i));
         }
         return quantity;
+    }
+
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if(context instanceof descriptionFragment.addToCartListener) {
+            listener = (descriptionFragment.addToCartListener) context;
+        }
     }
 }

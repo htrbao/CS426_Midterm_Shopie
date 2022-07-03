@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,11 +21,15 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import product.Cart;
 import product.Product;
 import product.ProductListener;
 import product.ShortProductAdapter;
 
 public class ItemActivity extends AppCompatActivity {
+
+    TextView textView;
+    ImageButton button;
 
     private ShortProductAdapter shortProductAdapter;
     private CartBtnFragment cartBtnFragment;
@@ -32,6 +38,13 @@ public class ItemActivity extends AppCompatActivity {
     private List<Product> list;
     private FirebaseDatabase database;
     private String category;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //textView.setText(String.valueOf(Cart.cartProductList == null ? 0 : Cart.cartProductList.size()));
+        cartBtnFragment.changeEditText(String.valueOf(Cart.cartProductList == null ? 0 : Cart.cartProductList.size()));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +61,13 @@ public class ItemActivity extends AppCompatActivity {
                 .replace(R.id.container_logo, logoFragment)
                 .replace(R.id.container_cart, cartBtnFragment)
                 .commit();
+
+        //textView = (TextView) findViewById(R.id.tv_productNo);
+        //button = (ImageButton) findViewById(R.id.cartBtn);
+
+        //textView.setText(String.valueOf(Cart.cartProductList == null ? 0 : Cart.cartProductList.size()));
+
+        //cartBtnFragment.changeEditText(String.valueOf(Cart.cartProductList == null ? 0 : Cart.cartProductList.size()));
 
         list = new ArrayList<>();
         category = getIntent().getStringExtra("category");
