@@ -14,6 +14,16 @@ public class Product implements Serializable {
         UrlProduct = urlProduct;
     }
 
+    public Product(Product product) {
+        Brand = product.Brand;
+        Category = product.Category;
+        Description = product.Description;
+        Items = product.Items;
+        Name = product.Name;
+        Price = product.Price;
+        UrlProduct = product.UrlProduct;
+    }
+
     public String getBrand() {
         return Brand;
     }

@@ -1,5 +1,6 @@
 package com.example.shopie;
 
+import android.content.Intent;
 import android.net.UrlQuerySanitizer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,18 +9,27 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+
+
+import java.io.File;
+import java.io.IOException;
+;
 import java.util.ArrayList;
 import java.util.List;
 
+import product.CartProduct;
 import product.Product;
 import product.ProductListener;
 
@@ -37,6 +47,7 @@ public class descriptionFragment extends Fragment {
     private TextView price_description;
     private TextView brand_description;
     private TextView content_description;
+    private Button  button;
 
 
     private AutoCompleteTextView autoCompleteTextView1;
@@ -74,6 +85,24 @@ public class descriptionFragment extends Fragment {
         price_description = view.findViewById(R.id.price_description);
         brand_description = view.findViewById(R.id.brand_description);
         content_description = view.findViewById(R.id.content_description);
+        button = view.findViewById(R.id.add_cart_button);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //write
+                TextView textView = v.findViewById(R.id.exampleReadJson);
+                String quantity = autoCompleteTextView2.getText().toString();
+                String type = autoCompleteTextView1.getText().toString();
+                CartProduct cartProduct = new CartProduct(product.getName(), product.getPrice(), product.getUrlProduct(), type, quantity);
+
+//                Intent intent = new Intent(getActivity().getApplicationContext(), DescriptionActivity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("cart_product", cartProduct);
+//                intent.putExtras(bundle);
+//                startActivity(intent);
+            }
+        });
 
         Glide.with(getContext()).load(product.getUrlProduct()).fitCenter().into(img_description);
         name_description.setText(product.getName());
