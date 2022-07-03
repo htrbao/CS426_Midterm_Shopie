@@ -29,6 +29,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import product.Cart;
 import product.CartProduct;
 import product.Product;
 import product.ProductListener;
@@ -90,17 +91,15 @@ public class descriptionFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //write
-                TextView textView = v.findViewById(R.id.exampleReadJson);
                 String quantity = autoCompleteTextView2.getText().toString();
                 String type = autoCompleteTextView1.getText().toString();
                 CartProduct cartProduct = new CartProduct(product.getName(), product.getPrice(), product.getUrlProduct(), type, quantity);
-
-//                Intent intent = new Intent(getActivity().getApplicationContext(), DescriptionActivity.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putSerializable("cart_product", cartProduct);
-//                intent.putExtras(bundle);
-//                startActivity(intent);
+                if (Cart.cartProductList == null)
+                {
+                    Cart.cartProductList = new ArrayList<>();
+                }
+                Cart.cartProductList.add(cartProduct);
+                Toast.makeText(getActivity().getApplicationContext(), "Added to Cart", Toast.LENGTH_SHORT).show();
             }
         });
 
