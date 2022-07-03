@@ -26,6 +26,8 @@ import product.ShortProductAdapter;
 public class ItemActivity extends AppCompatActivity {
 
     private ShortProductAdapter shortProductAdapter;
+    private CartBtnFragment cartBtnFragment;
+    private LogoFragment logoFragment;
     private RecyclerView shortProductRecyclerView;
     private List<Product> list;
     private FirebaseDatabase database;
@@ -38,6 +40,14 @@ public class ItemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_item);
 
         getSupportActionBar().hide();
+
+        cartBtnFragment = new CartBtnFragment();
+        logoFragment = new LogoFragment();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_logo, logoFragment)
+                .replace(R.id.container_cart, cartBtnFragment)
+                .commit();
 
         list = new ArrayList<>();
         category = getIntent().getStringExtra("category");

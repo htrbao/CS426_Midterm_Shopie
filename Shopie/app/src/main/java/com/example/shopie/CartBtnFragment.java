@@ -20,6 +20,10 @@ public class CartBtnFragment extends Fragment {
         void onClickCartBtn();
     }
 
+    public interface CartNoProduct {
+        void changeEditText();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

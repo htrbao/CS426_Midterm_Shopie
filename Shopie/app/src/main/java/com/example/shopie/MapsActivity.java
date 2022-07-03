@@ -40,6 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
 
         myChain.add(new LatLng(10.88133,106.6710595));
+        myChain.add(new LatLng(10.8653134,106.7598629));
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
