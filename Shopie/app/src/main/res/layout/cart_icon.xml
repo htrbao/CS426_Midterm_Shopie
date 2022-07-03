@@ -27,5 +27,5 @@
         android:layout_marginEnd="-4dp"
         android:layout_marginTop="-4dp"
         android:gravity="center"
-        android:id="@+id/tv_productNo"/>
+        android:id="@+id/tv_productRunPls"/>
 </FrameLayout>

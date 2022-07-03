@@ -23,6 +23,7 @@ import me.relex.circleindicator.CircleIndicator2;
 import menu.Menu;
 import menu.MenuAdaper;
 import menu.MenuListener;
+import product.Cart;
 
 public class MainActivity extends AppCompatActivity implements testFragment.TestFragmentListener, CartBtnFragment.CartBtnFragmentListener, LogoFragment.LogoBtnFragmentListener{
     private testFragment testfragment;
@@ -35,8 +36,16 @@ public class MainActivity extends AppCompatActivity implements testFragment.Test
     private menuFragment menuFragment;
 
     @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        cartBtnFragment.changeEditText(String.valueOf(Cart.cartProductList == null ? 0 : Cart.cartProductList.size()));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Cart.cartProductList = new ArrayList<>();
 
         getSupportActionBar().hide();
 

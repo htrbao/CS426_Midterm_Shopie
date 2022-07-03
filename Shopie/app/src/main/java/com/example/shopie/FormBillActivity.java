@@ -31,14 +31,14 @@ public class FormBillActivity extends FragmentActivity {
         checkoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(edtName.getText().toString() == "") {
+                if(edtName.getText().toString().matches("")) {
                     noti.setText("Name cannot be empty");
-                } else if (edtEmail.getText().toString() == "") {
+                } else if (edtEmail.getText().toString().matches("")) {
                     noti.setText("Email address cannot be empty");
-                } else if (edtPhone.getText().toString() == "") {
+                } else if (edtPhone.getText().toString().matches("")) {
                     noti.setText("Phone number cannot be empty");
-                } else if (edtAddress.getText().toString() == "") {
-                    noti.setText(" cannot be empty");
+                } else if (edtAddress.getText().toString().matches("")) {
+                    noti.setText("Address cannot be empty");
                 } else {
                     Toast.makeText(getApplicationContext(), "Thank you for your order", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(FormBillActivity.this, MainActivity.class);
