@@ -5,10 +5,13 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -19,6 +22,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.shopie.databinding.ActivityMapsBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,17 +31,35 @@ import com.google.android.gms.tasks.Task;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener {
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    MarkerOptions user;
     FusedLocationProviderClient client;
     SupportMapFragment mapFragment;
+    protected LocationManager locationManager;
+    protected LocationListener locationListener;
     ArrayList<LatLng> myChain = new ArrayList<LatLng>();
     Bitmap bit = BitmapFactory.decodeFile(String.valueOf(R.drawable.user));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            getCurrentLocation();
+        } else {
+            ActivityCompat.requestPermissions(MapsActivity.this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
+        }
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) this);
 
         myChain.add(new LatLng(10.88133,106.6710595));
         myChain.add(new LatLng(10.8653134,106.7598629));
@@ -50,10 +72,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if(ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             //Permission granted
             //call method
-            getCurrentLocation();
-        } else {
-            ActivityCompat.requestPermissions(MapsActivity.this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
         }
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -72,12 +90,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         @Override
                         public void onMapReady(@NonNull GoogleMap googleMap) {
                             LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                            MarkerOptions options = new MarkerOptions()
+                            user = new MarkerOptions()
                                     .position(latLng)
                                     .title("You are here")
                                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.user));
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
-                            googleMap.addMarker(options);
+                            googleMap.addMarker(user);
                         }
                     });
                 }
@@ -116,5 +134,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             googleMap.addMarker(options);
         }
 
+    }
+
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        user.position(latLng);
+        mMap.addMarker(user);
     }
 }

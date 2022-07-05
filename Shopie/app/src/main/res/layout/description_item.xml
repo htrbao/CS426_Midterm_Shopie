@@ -106,15 +106,16 @@
                             android:inputType="none"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/add_cart_button"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="right"
                     android:textSize="20dp"
                     android:text="Add to cart"
-                    android:background="@drawable/btn_add_cart"
-                    android:backgroundTint="@color/teal_200"
-                    />
+                    android:background="@drawable/btn_design">
+
+                </androidx.appcompat.widget.AppCompatButton>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

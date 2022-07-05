@@ -45,8 +45,29 @@ public class CartProduct implements Serializable {
         return Quantity;
     }
 
+    public Integer getPriceInInt() {
+        Integer total = 0;
+        System.out.println(Price.length());
+        for (int i = 0; i < Price.length() - 1; i++) {
+            if((int)'0' <= (int)Price.charAt(i) && (int)Price.charAt(i) <= (int)'9') {
+                total = total * 10 + (int)Price.charAt(i) - (int)'0';
+                //System.out.println(total);
+            }
+        }
+
+        return total;
+    }
+
     public void setQuantity(String quantity) {
         Quantity = quantity;
+    }
+
+    public void incQuantity() {
+        Quantity = String.valueOf(Integer.valueOf(Quantity) + 1);
+    }
+
+    public void descQuantity() {
+        Quantity = String.valueOf(Integer.valueOf(Quantity) - 1);
     }
 
     private String Quantity;

@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Shopie">
         <activity
+            android:name=".BillActivity"
+            android:exported="false" />
+        <activity
             android:name=".FormBillActivity"
             android:exported="false" />
         <activity

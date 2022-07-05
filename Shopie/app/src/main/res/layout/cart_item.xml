@@ -23,7 +23,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="name"
                 android:textSize="20dp"
                 android:id="@+id/cart_item_name"
                 android:padding="2dp"/>
@@ -44,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
                     android:textStyle="bold"
-                    android:text="123423412"/>
+                    android:text=""/>
             </LinearLayout>
 
             <LinearLayout
@@ -64,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
                     android:textStyle="bold"
-                    android:text="123423412"/>
+                    android:text=""/>
             </LinearLayout>
 
             <LinearLayout
@@ -73,27 +72,30 @@
                 android:orientation="horizontal"
                 android:gravity="right"
                 >
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageButton
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:id="@+id/des_btn"
-                    android:text="-"
-                    android:background="@drawable/bt_add_quantity"/>
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/minus"/>
 
                 <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
                     android:id="@+id/cart_quantity"
                     android:text="0"
                     android:inputType="phone"
-                    android:paddingHorizontal="70dp"
-                    android:textSize="16dp"/>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:textSize="13dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/edt_design"/>
+                <ImageButton
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:id="@+id/inc_btn"
-                    android:text="+"
-                    android:background="@drawable/bt_add_quantity"/>
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/add"/>
             </LinearLayout>
 
         </LinearLayout>

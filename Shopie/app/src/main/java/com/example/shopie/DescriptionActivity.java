@@ -2,6 +2,7 @@ package com.example.shopie;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.widget.ImageButton;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 import product.Cart;
 import product.Product;
 
-public class DescriptionActivity extends AppCompatActivity implements descriptionFragment.addToCartListener{
+public class DescriptionActivity extends AppCompatActivity implements descriptionFragment.addToCartListener, CartBtnFragment.CartBtnFragmentListener {
     TextView textView;
     ImageButton button;
 
@@ -57,5 +58,11 @@ public class DescriptionActivity extends AppCompatActivity implements descriptio
     @Override
     public void addProductListener(int n) {
         cartBtnFragment.changeEditText(String.valueOf(n));
+    }
+
+    @Override
+    public void onClickCartBtn() {
+        Intent intent = new Intent(DescriptionActivity.this, BillActivity.class);
+        startActivity(intent);
     }
 }

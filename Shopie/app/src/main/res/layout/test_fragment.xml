@@ -5,9 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".testFragment">
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="About us"
-        android:id="@+id/btn_aboutus"/>
+        android:background="@drawable/edt_design"
+        android:id="@+id/btn_aboutus">
+
+    </androidx.appcompat.widget.AppCompatButton>
 </LinearLayout>

@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements testFragment.Test
     @Override
     public void onClickCartBtn() {
         //for moving to Cart Screen.
-        Intent intent = new Intent(MainActivity.this, FormBillActivity.class);
+        Intent intent = new Intent(MainActivity.this, BillActivity.class);
         startActivity(intent);
     }
 

@@ -26,7 +26,7 @@ import product.Product;
 import product.ProductListener;
 import product.ShortProductAdapter;
 
-public class ItemActivity extends AppCompatActivity {
+public class ItemActivity extends AppCompatActivity implements CartBtnFragment.CartBtnFragmentListener {
 
     TextView textView;
     ImageButton button;
@@ -117,5 +117,11 @@ public class ItemActivity extends AppCompatActivity {
 
     private void getList() {
         //list.add(Product("Dot Grid", "Notebook", "xzxczxc", {"1","2","3"}))
+    }
+
+    @Override
+    public void onClickCartBtn() {
+        Intent intent = new Intent(ItemActivity.this, BillActivity.class);
+        startActivity(intent);
     }
 }
