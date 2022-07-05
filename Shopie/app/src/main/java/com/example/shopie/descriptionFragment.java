@@ -100,9 +100,17 @@ public class descriptionFragment extends Fragment {
                 {
                     Cart.cartProductList = new ArrayList<>();
                 }
-                Cart.cartProductList.add(cartProduct);
-                Toast.makeText(getActivity().getApplicationContext(), "Added to Cart", Toast.LENGTH_SHORT).show();
-                listener.addProductListener(Cart.cartProductList.size());
+
+                if (!quantity.isEmpty() && !type.isEmpty())
+                {
+                    Cart.cartProductList.add(cartProduct);
+                    Toast.makeText(getActivity().getApplicationContext(), "Added to Cart", Toast.LENGTH_SHORT).show();
+                    listener.addProductListener(Cart.cartProductList.size());
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), "Pleasee choose quantity and type", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
