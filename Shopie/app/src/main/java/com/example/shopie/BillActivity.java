@@ -70,12 +70,12 @@ public class BillActivity extends AppCompatActivity {
 
             @Override
             public void onClickDescBtn(int position) {
-                totalI -= Cart.cartProductList.get(position).getPriceInInt();
-
                 if(Cart.cartProductList.isEmpty()) {
                     nothing();
                     return;
                 }
+                if(Cart.cartProductList.get(position) == null) return;
+                totalI -= Cart.cartProductList.get(position).getPriceInInt();
                 total.setText(normalizePriceString(String.valueOf(totalI)));
                 Cart.cartProductList.get(position).descQuantity();
             }
@@ -87,6 +87,7 @@ public class BillActivity extends AppCompatActivity {
                     return;
                 }
                 CartProduct cartProduct = Cart.cartProductList.get(position);
+                if(cartProduct == null) return;
                 int priceCartProduct = cartProduct.getPriceInInt();
                 totalI -= priceCartProduct * Integer.valueOf(cartProduct.getQuantity());
                 cartProduct.setQuantity(value);

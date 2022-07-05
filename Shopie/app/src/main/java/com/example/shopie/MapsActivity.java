@@ -46,33 +46,36 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        myChain.add(new LatLng(10.88133,106.6710595));
+        myChain.add(new LatLng(10.8653134,106.7598629));
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
+            ActivityCompat.requestPermissions(this, new String[] {
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION },
+                    44);
             // here to request the missing permissions, and then overriding
             //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
-            getCurrentLocation();
-        } else {
-            ActivityCompat.requestPermissions(MapsActivity.this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
-        }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) this);
 
-        myChain.add(new LatLng(10.88133,106.6710595));
-        myChain.add(new LatLng(10.8653134,106.7598629));
+        }
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         client = LocationServices.getFusedLocationProviderClient(this);
 
-        if(ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+       if(ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             //Permission granted
             //call method
-        }
+           getCurrentLocation();
+           locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) this);
+       }
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -81,7 +84,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void getCurrentLocation() {
-        Task<Location> task =client.getLastLocation();
+        Task<Location> task = client.getLastLocation();
         task.addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(final Location location) {
@@ -105,8 +108,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if(requestCode == 44) {
-            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 44) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getCurrentLocation();
             }
         }
@@ -130,7 +134,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LatLng latLng = new LatLng(myChain.get(i).latitude, myChain.get(i).longitude);
             MarkerOptions options = new MarkerOptions()
                     .position(latLng)
-                    .title("CN1");
+                    .title("CN " + String.valueOf(i + 1));
             googleMap.addMarker(options);
         }
 

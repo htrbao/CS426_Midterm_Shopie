@@ -62,7 +62,7 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(cartProduct.getQuantity().matches("0")) {
+                if(s.toString().matches("0")) {
                     listener.onFocusQuanEdt(position, s.toString());
                     Cart.cartProductList.remove(position);
                     notifyDataSetChanged();
@@ -83,13 +83,14 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
             @Override
             public void onClick(View v) {
                 boolean b = false;
-                listener.onClickDescBtn(position);
                 if(cartProduct.getQuantity().matches("0")) {
                     Cart.cartProductList.remove(position);
                     notifyDataSetChanged();
                     b = true;
+                    listener.onClickDescBtn(position);
                     return;
                 }
+                listener.onClickDescBtn(position);
                 if(!b) holder.etQuantity.setText(cartProduct.getQuantity());
             }
         });

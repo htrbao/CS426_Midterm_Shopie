@@ -109,7 +109,7 @@ public class descriptionFragment extends Fragment {
                 }
                 else
                 {
-                    Toast.makeText(getActivity().getApplicationContext(), "Pleasee choose quantity and type", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "Please choose quantity and type", Toast.LENGTH_SHORT).show();
                 }
             }
         });
